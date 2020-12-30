@@ -2,7 +2,12 @@ sudo: required
 
 services: docker
 
+env:
+  global:
+    secure: D5MihZ9FQK96B3RQbI9T+YaxAgYp+fidkLH2bkjexNxParYxC8xd4j3IBCgRg8a2Iq8Zq6NlBUiRxG5Jj5ZreDZuUsTqFs75IZ7haznnOpmN6xYLL2jdPWW48hL3RLI6CjiNCyVYQdkH6QLKcRY6Un5ZqtOZDNMy2z146wB9/w4UrJQwz8sjMHz9LvI6QSohJjGOprknA4ph3ZmMC276mV7miUtwOAHB8oCvjowuoc/0uSQ3tUp7trcEJcuatDhYkvcnfoQB0QGaR4jC1cOikYkGbtr3/U3QAYxD2ai+01wlK+X1vbHUkiCTPbOMe1kon06DgalSI0rtjdh0LLxhEjLxw2wZxFmmWUG5YkVRgPp2KZLwuSewbqMzPGzqHPxUFzuXJeynODK41riv6kQBjErO3NEFs2gVJy1DKvghFSrBlZgPQqBzZsDE6qEereanxCRwr7jECnLPOpwX2/2Kx+t2UEYhd8wfIAAi5JiITbQbPmtlW8uyhd3/zY83tfIyHqiKDqrsehJZ+IyFH4HNFY5HB0rv/f1GIZnUXQzOJrAY7+sBYdgyjmOPYJRz8KJYxsKl5uYASCi0I9Q/SU0JF61+MGMMW/A3/PQZlX5u4pLZTNGvLBOb3MFdkeagMDy0dL83B0zy6F08VRj76aPu1pzUiFKl3NfR+MFstJjDdP4=
+
 before_install:
+  - echo "$MY_SECRET_ENV" | docker login --username mokasystem --password-stdin
   - docker-compose up --build -d
 
 script:
